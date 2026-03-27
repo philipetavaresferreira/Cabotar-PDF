@@ -1,0 +1,5 @@
+{
+  "name": "Purificador de PDFs",
+  "description": "Remova elementos visuais de cabeçalhos e rodapés de seus documentos PDF de forma inteligente.",
+  "requestFramePermissions": []
+}
