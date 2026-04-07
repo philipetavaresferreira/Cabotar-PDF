@@ -102,7 +102,10 @@ export async function renderPageToCanvas(file: File, canvas: HTMLCanvasElement):
   const arrayBuffer = await file.arrayBuffer();
   const loadingTask = pdfjs.getDocument({ data: arrayBuffer });
   const pdf = await loadingTask.promise;
-  const page = await pdf.getPage(1);
+  
+  // Render page 7 if available, otherwise fallback to the last page
+  const pageNumber = Math.min(7, pdf.numPages);
+  const page = await pdf.getPage(pageNumber);
   const viewport = page.getViewport({ scale: 1.5 }); // Higher scale for better preview
   
   const context = canvas.getContext('2d');
@@ -259,6 +262,18 @@ export async function processPdf(
     }
     
     const { width, height } = page.getSize();
+
+    // If it's the first page, blank it completely
+    if (i === 0) {
+      page.drawRectangle({
+        x: 0,
+        y: 0,
+        width,
+        height,
+        color: rgb(1, 1, 1),
+      });
+      continue;
+    }
 
     if (headerHeight > 0) {
       page.drawRectangle({

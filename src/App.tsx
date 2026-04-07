@@ -246,7 +246,7 @@ export default function App() {
                       <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 flex gap-3">
                         <Info className="text-blue-500 shrink-0" size={18} />
                         <p className="text-xs text-blue-700 leading-relaxed">
-                          As máscaras estão fixadas em 60px conforme solicitado. Você ainda pode ajustar manualmente se houver variações no documento.
+                          As máscaras estão fixadas em 60px conforme solicitado. A primeira página do documento será transformada em uma página em branco.
                         </p>
                       </div>
 
@@ -315,7 +315,7 @@ export default function App() {
             <div className="bg-white rounded-2xl border border-gray-200 shadow-sm h-full min-h-[600px] flex flex-col overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
                 <h2 className="text-sm font-semibold text-gray-600 flex items-center gap-2">
-                  Visualização do Documento
+                  Visualização do Documento (Página 7)
                 </h2>
                 {file && (
                   <div className="flex gap-2">
